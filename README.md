@@ -7,7 +7,7 @@ This project is designed for managing and analyzing sales data within a multi-te
 
 Data Insertion: Import sales data from CSV files into the system.
 Data Analysis: Use APIs to analyze and retrieve sales trends and metrics.
-Multi-Tenancy Support: Manage data for multiple tenants with isolated schemas.
+Multi-Tenancy Support: Manage data for multiple tenants with isolated schemas. Highly recommend to go through [the doc](https://django-tenants.readthedocs.io/en/latest/install.html#basic-settings) before setting up
 The project leverages Celery for handling background tasks, ensuring smooth data processing and analysis.
 
 ## Installation
