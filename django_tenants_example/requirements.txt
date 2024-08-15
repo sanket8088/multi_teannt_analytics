@@ -21,12 +21,6 @@ frozenlist==1.4.1
 jsonpatch==1.33
 jsonpointer==2.1
 kombu==5.4.0
-langchain==0.1.16
-langchain-community==0.0.34
-langchain-core==0.1.45
-langchain-experimental==0.0.57
-langchain-text-splitters==0.0.1
-langsmith==0.1.49
 marshmallow==3.21.1
 multidict==6.0.5
 mypy-extensions==1.0.0
