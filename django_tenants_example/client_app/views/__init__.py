@@ -1,0 +1,3 @@
+from client_app.views.TopMonthsSalesView import TopMonthsView
+from client_app.views.SalesTrendView import SalesTrendsView
+from client_app.views.MaxSalesCustomerView import MaxSalesCustomerView

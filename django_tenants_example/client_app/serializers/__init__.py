@@ -1,0 +1,2 @@
+from client_app.serializers.SalesTrendSerializer import SalesTrendsSerializer
+from client_app.serializers.SalesDataSerializer import SalesDataSerializer, SalesTrendsDataSerializer
