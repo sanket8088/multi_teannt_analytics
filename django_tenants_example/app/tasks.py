@@ -2,7 +2,7 @@
 from celery import shared_task
 import csv
 from django_tenants.utils import schema_context
-from app.models import Product, Customer, SalesData
+from client_app.models import Product, Customer, SalesData
 
 @shared_task
 def refresh_data_task(schema_name, csv_file):
@@ -13,30 +13,10 @@ def refresh_data_task(schema_name, csv_file):
         schema_name (str): The schema name of the tenant to refresh data for.
         csv_file (str): The path to the CSV file with data.
     """
+    print("Running for schema name",schema_name )
     with schema_context(schema_name):
-        # Refresh products
-        load_csv(csv_file, Product, ['id', 'name'])
-
-        # Refresh customers
-        load_csv(csv_file, Customer, ['id', 'name', 'email'])
-
         # Refresh sales data
         load_sales_data(csv_file)
-
-def load_csv(file_name, model, fields):
-    """
-    Load data from a CSV file into a Django model.
-
-    Args:
-        file_name (str): The path to the CSV file.
-        model (Django model): The model to load data into.
-        fields (list): The list of fields to map from CSV to model.
-    """
-    with open(file_name, 'r') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            data = {field: row[field] for field in fields}
-            model.objects.update_or_create(**data)
 
 def load_sales_data(file_name):
     """
@@ -56,3 +36,4 @@ def load_sales_data(file_name):
                 sale_date=row['sale_date'],
                 defaults={'amount': row['amount']}
             )
+
