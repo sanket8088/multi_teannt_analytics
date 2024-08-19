@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ request.tenant }} Employees</title>
+    <title>{{ request.tenant }} Products</title>
     <style>
         body {
             display: flex;
@@ -14,17 +14,6 @@
     </style>
 </head>
 <body>
-    <h1>{{ request.tenant }} Employees</h1>
-    <ul>
-        {% for employee in employees %}
-        <li>{{ employee.name }}</li>
-        {% endfor %}
-    </ul>
-
-    <form method="POST" action="/create_employee">
-        {% csrf_token %}
-        <input type="text" name="name" placeholder="Add new employee" />
-        <button>Submit</button>
-    </form>
+    <h1>Products</h1>
 </body>
 </html>

@@ -57,9 +57,10 @@ class SalesTrendsView(generics.GenericAPIView):
                     "error": "No sales data found for the specified period."
                 }
                 return Response(response_data, status=status.HTTP_404_NOT_FOUND)
-
+            print(sales_trends)
             # Extract only total_sales from the data
-            total_sales_data = [{"total_sales": entry["total_sales"]} for entry in sales_trends]
+            total_sales_data = [{"total_sales": entry["total_sales"], "month": str(entry["month"])} for entry in sales_trends]
+
             response_data = {
                 "success": True,
                 "data": total_sales_data
